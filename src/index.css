@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Bebas Neue', 'Anton', sans-serif;
+    --font-headline: 'Anton', sans-serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-script: 'Caveat', cursive;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #070708;
+    color: #ffffff;
+  }
+}
+
+.font-display {
+  font-family: 'Bebas Neue', 'Anton', sans-serif;
+  letter-spacing: 0.03em;
+}
+
+.font-headline {
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.font-serif-title {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-script {
+  font-family: 'Caveat', cursive;
+}
+
+/* Subtle dark editorial background texture with deep wine vignette */
+.bg-dark-editorial {
+  background-color: #070708;
+  background-image: 
+    radial-gradient(circle at 85% 15%, rgba(139, 0, 31, 0.12) 0%, transparent 55%),
+    radial-gradient(circle at 15% 85%, rgba(110, 10, 28, 0.08) 0%, transparent 50%),
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 60px 60px, 60px 60px;
+}
+
+/* Custom scrollbar with burgundy accent */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #070708;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f1f22;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8B001F;
+}
+
