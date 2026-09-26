@@ -38,10 +38,10 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onContactClick }) => 
       </div>
 
       {/* Main Magazine Cover Hero Layout */}
-      <div className="relative max-w-7xl mx-auto w-full flex-1 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 py-10 my-auto z-10">
+      <div className="relative max-w-7xl mx-auto w-full flex-1 flex flex-col justify-center py-10 my-auto z-10">
         
         {/* Left Editorial Content (Dominant Headline + Tagline + Buttons) */}
-        <div className="flex-1 max-w-3xl text-left select-none">
+        <div className="max-w-4xl text-left select-none">
           
           {/* Subtle Burgundy Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xs border border-[#8B001F]/40 bg-[#8B001F]/10 mb-4">
@@ -101,35 +101,6 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onContactClick }) => 
             <span>Based in {PERSONAL_INFO.location}</span>
             <span className="text-[#8B001F]">•</span>
             <span className="text-white font-semibold">Digital Marketing • Business Strategy</span>
-          </div>
-        </div>
-
-        {/* Right Side: Editorial Magazine Portrait Element with Deep Burgundy Backing */}
-        <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-md shrink-0 flex justify-center">
-          {/* Deep Burgundy Radial Glow behind portrait */}
-          <div className="absolute inset-0 bg-[#8B001F]/30 rounded-2xl blur-3xl scale-95 pointer-events-none" />
-
-          {/* Minimal Border Frame */}
-          <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden border border-[#8B001F]/50 shadow-[0_20px_60px_rgba(0,0,0,0.9)] bg-[#0d0a0b]">
-            <img 
-              src="/images/regenerated_image_1790411853949.jpg" 
-              alt="Manoj Chetri - Digital Marketing & Business"
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-            {/* Subtle Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#070708] via-transparent to-transparent opacity-90" />
-            
-            {/* Editorial Caption Tag */}
-            <div className="absolute bottom-4 left-4 right-4 p-3 bg-[#070708]/90 backdrop-blur-md border border-[#8B001F]/30 rounded-xs flex items-center justify-between">
-              <div>
-                <p className="text-[10px] font-mono tracking-widest uppercase text-[#BE123C] font-bold">EDITION 2026</p>
-                <p className="font-headline text-base text-white tracking-wide">MANOJ CHETRI</p>
-              </div>
-              <span className="text-[10px] font-mono font-bold px-2 py-0.5 bg-[#8B001F]/40 border border-[#BE123C]/50 text-white rounded-xs">
-                INDIA
-              </span>
-            </div>
           </div>
         </div>
       </div>
