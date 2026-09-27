@@ -543,12 +543,12 @@ export const PortfolioAssistant: React.FC<PortfolioAssistantProps> = ({ onNaviga
 
   return (
     <>
-      {/* 1. FIXED FLOATING CAT MASCOT TRIGGER (Positioned higher up on the right side as marked, visible on scroll) */}
+      {/* 1. FIXED FLOATING CAT MASCOT TRIGGER (Always visible on mobile, tablet & desktop at bottom-right) */}
       {!isOpen && (
         <div 
           id="assistant-mascot-fixed-trigger"
-          style={{ position: 'fixed', zIndex: 9999 }}
-          className="fixed right-4 sm:right-6 md:right-8 lg:right-10 bottom-24 sm:bottom-28 md:bottom-32 lg:bottom-36 select-none"
+          style={{ position: 'fixed', zIndex: 9999, display: 'block', visibility: 'visible', opacity: 1, pointerEvents: 'auto' }}
+          className="fixed right-4 bottom-4 sm:right-6 sm:bottom-6 md:right-6 md:bottom-6 lg:right-8 lg:bottom-8 select-none"
         >
           {/* Entire Cat Mascot is Clickable */}
           <button
@@ -556,22 +556,23 @@ export const PortfolioAssistant: React.FC<PortfolioAssistantProps> = ({ onNaviga
             id="cat-mascot-trigger-btn"
             onClick={() => setIsOpen(true)}
             aria-label="Open Manoj's Assistant"
+            style={{ display: 'flex', visibility: 'visible', opacity: 1, pointerEvents: 'auto', cursor: 'pointer' }}
             className="group flex flex-col items-center cursor-pointer focus:outline-none transition-transform duration-300 hover:scale-105 active:scale-95 text-center"
           >
             {/* Playful Handwritten Label with Curved Arrow */}
             <div className="flex flex-col items-center select-none pointer-events-none mb-0.5">
-              <div className="flex items-baseline gap-1 font-script leading-none drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-                <span className="text-[#BE123C] text-xl sm:text-2xl md:text-2xl font-bold rotate-[-5deg] tracking-wide">
+              <div className="flex items-baseline gap-0.5 sm:gap-1 font-script leading-none drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+                <span className="text-[#BE123C] text-sm xs:text-base sm:text-lg md:text-xl font-bold rotate-[-5deg] tracking-wide">
                   Manoj’s
                 </span>
-                <span className="text-white text-lg sm:text-xl md:text-xl font-bold rotate-[2deg] tracking-wide">
+                <span className="text-white text-xs xs:text-sm sm:text-base md:text-lg font-bold rotate-[2deg] tracking-wide">
                   Assistant
                 </span>
               </div>
 
               {/* Small curved burgundy arrow pointing toward the cat */}
               <svg 
-                className="w-9 h-5 sm:w-10 sm:h-6 text-[#BE123C] mt-0.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]" 
+                className="w-6 h-3 xs:w-7 xs:h-4 sm:w-8 sm:h-5 md:w-9 md:h-5 text-[#BE123C] mt-0.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]" 
                 viewBox="0 0 55 32" 
                 fill="none" 
                 xmlns="http://www.w3.org/2000/svg"
@@ -594,7 +595,7 @@ export const PortfolioAssistant: React.FC<PortfolioAssistantProps> = ({ onNaviga
               </svg>
             </div>
 
-            {/* Cat Mascot Image with Clean Cutout & Subtle Burgundy Glow (Static, No Animations as Requested) */}
+            {/* Cat Mascot Image with Clean Cutout & Subtle Burgundy Glow */}
             <div className="relative">
               {/* Subtle ambient burgundy pulse behind the cat */}
               <div className="absolute inset-0 bg-[#8B001F]/30 blur-xl rounded-full scale-90 group-hover:scale-115 group-hover:bg-[#BE123C]/50 transition-all duration-300 pointer-events-none" />
@@ -603,11 +604,11 @@ export const PortfolioAssistant: React.FC<PortfolioAssistantProps> = ({ onNaviga
                 src={assistantMascotImg}
                 alt="Manoj's Assistant Mascot"
                 referrerPolicy="no-referrer"
-                className="relative w-20 sm:w-24 md:w-28 lg:w-30 h-auto object-contain rounded-2xl drop-shadow-[0_10px_25px_rgba(0,0,0,0.9)] transition-all duration-300 group-hover:drop-shadow-[0_15px_30px_rgba(190,18,60,0.4)]"
+                className="relative w-14 xs:w-16 sm:w-20 md:w-24 lg:w-26 h-auto object-contain rounded-xl sm:rounded-2xl drop-shadow-[0_10px_25px_rgba(0,0,0,0.9)] transition-all duration-300 group-hover:drop-shadow-[0_15px_30px_rgba(190,18,60,0.4)]"
               />
 
               {/* Small interactive speech hint on hover */}
-              <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-[#8B001F] text-white border border-[#BE123C]/60 text-[10px] sm:text-[11px] font-bold tracking-wider uppercase shadow-xl whitespace-nowrap opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all">
+              <div className="absolute -bottom-1 sm:-bottom-1.5 left-1/2 -translate-x-1/2 px-1.5 xs:px-2 sm:px-2.5 py-0.5 rounded-full bg-[#8B001F] text-white border border-[#BE123C]/60 text-[8px] xs:text-[9px] sm:text-[10px] md:text-[11px] font-bold tracking-wider uppercase shadow-xl whitespace-nowrap opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all">
                 <span>Ask Me! 💬</span>
               </div>
             </div>
@@ -615,12 +616,12 @@ export const PortfolioAssistant: React.FC<PortfolioAssistantProps> = ({ onNaviga
         </div>
       )}
 
-      {/* 2. CHAT POPUP WINDOW (Attached to VIEWPORT at bottom-right) */}
+      {/* 2. CHAT POPUP WINDOW (Attached to VIEWPORT at bottom-right, full fit on mobile & tablet) */}
       {isOpen && (
         <div 
           id="portfolio-assistant-window"
           style={{ position: 'fixed', zIndex: 9999 }}
-          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 md:right-8 md:bottom-6 w-[calc(100vw-2rem)] sm:w-[380px] max-w-[400px] h-[520px] max-h-[calc(100vh-5rem)] bg-[#0d0a0b] border border-[#8B001F]/40 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.95),0_0_35px_rgba(139,0,31,0.25)] flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200"
+          className="fixed bottom-2 right-2 sm:bottom-5 sm:right-5 md:bottom-7 md:right-7 w-[calc(100vw-1rem)] sm:w-[380px] max-w-[400px] h-[calc(100vh-1rem)] sm:h-[520px] max-h-[580px] bg-[#0d0a0b] border border-[#8B001F]/40 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.95),0_0_35px_rgba(139,0,31,0.25)] flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200"
           role="dialog"
           aria-label="Manoj's Assistant Chat Window"
         >

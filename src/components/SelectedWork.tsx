@@ -75,11 +75,11 @@ export const SelectedWork: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
-        <div className="mb-10 sm:mb-12 border-b border-[#8B001F]/30 pb-4">
+        <div className="mb-8 sm:mb-12 border-b border-[#8B001F]/30 pb-3 sm:pb-4">
           <span className="text-xs font-mono tracking-[0.25em] text-[#BE123C] uppercase font-bold block mb-2">
             VISUAL ARCHIVE & MEMORIES
           </span>
-          <h2 className="font-headline text-5xl sm:text-6xl md:text-7xl tracking-tight uppercase text-white font-black">
+          <h2 className="font-headline text-4xl xs:text-5xl sm:text-6xl md:text-7xl tracking-tight uppercase text-white font-black">
             GALLERY
           </h2>
         </div>
@@ -144,7 +144,7 @@ export const SelectedWork: React.FC = () => {
         {/* Dynamic Photo Grid */}
         <div 
           key={activeCategory}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 animate-fade-in"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 animate-fade-in"
         >
           {filteredProjects.map((project, index) => {
             const isSpanLandscape = project.featured && index % 4 === 0;
@@ -155,7 +155,7 @@ export const SelectedWork: React.FC = () => {
                 id={`gallery-photo-${project.id}`}
                 onClick={() => handleOpenLightbox(project)}
                 className={`group relative bg-[#0c0a0b] rounded-xs border border-[#8B001F]/20 overflow-hidden cursor-pointer transition-all duration-300 hover:border-[#8B001F] hover:shadow-xl hover:shadow-[#8B001F]/10 hover:-translate-y-0.5 ${
-                  isSpanLandscape ? 'md:col-span-2' : ''
+                  isSpanLandscape ? 'sm:col-span-2' : ''
                 }`}
                 tabIndex={0}
                 role="button"

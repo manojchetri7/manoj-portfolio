@@ -53,23 +53,23 @@ export const Contact: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Headline matching Reference: "LET'S WORK TOGETHER" */}
-        <div className="mb-14 sm:mb-16 border-b border-[#8B001F]/30 pb-4">
+        <div className="mb-10 sm:mb-16 border-b border-[#8B001F]/30 pb-3 sm:pb-4">
           <span className="text-xs font-mono tracking-[0.25em] text-[#BE123C] uppercase font-bold block mb-2">
             GET IN TOUCH & START COLLABORATING
           </span>
-          <h2 className="font-headline text-5xl sm:text-6xl md:text-7xl tracking-tight uppercase text-white font-black">
+          <h2 className="font-headline text-4xl xs:text-5xl sm:text-6xl md:text-7xl tracking-tight uppercase text-white font-black">
             LET'S WORK TOGETHER
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-neutral-300 font-light max-w-xl">
+          <p className="mt-3 sm:mt-4 text-sm xs:text-base sm:text-lg text-neutral-300 font-light max-w-xl">
             I'm currently open for new projects and collaborations. Let's create something impactful that drives real results.
           </p>
         </div>
 
         {/* 2-Column Grid: Left Contact Info with Red Signature, Right Interactive Form */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 lg:gap-16 items-start">
           
           {/* Left Column: Direct Contacts & Cursive Signature */}
-          <div className="lg:col-span-5 space-y-8">
+          <div className="md:col-span-5 space-y-6 sm:space-y-8">
             
             <div className="p-7 sm:p-8 rounded-xs bg-[#0c0a0b] border border-[#8B001F]/25 relative overflow-hidden">
               <div className="relative">
@@ -150,7 +150,7 @@ export const Contact: React.FC = () => {
           </div>
 
           {/* Right Column: Contact Form */}
-          <div className="lg:col-span-7 bg-[#0c0a0b] p-8 sm:p-10 rounded-xs border border-[#8B001F]/30 shadow-2xl">
+          <div className="md:col-span-7 bg-[#0c0a0b] p-6 sm:p-8 lg:p-10 rounded-xs border border-[#8B001F]/30 shadow-2xl">
             
             {submitted ? (
               <div className="text-center py-12 space-y-4">

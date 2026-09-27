@@ -19,6 +19,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, activeSection }) => 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Prevent background scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   const navItems = [
     { label: 'HOME', id: 'hero' },
     { label: 'ABOUT', id: 'about' },
@@ -55,8 +67,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, activeSection }) => 
           <span className="w-2 h-2 rounded-full bg-[#8B001F] hidden sm:inline-block shadow-[0_0_8px_rgba(139,0,31,0.8)]" />
         </button>
 
-        {/* Desktop Nav Items */}
-        <nav id="desktop-navigation" className="hidden md:flex items-center gap-8" aria-label="Main Navigation">
+        {/* Desktop / Tablet Nav Items */}
+        <nav id="desktop-navigation" className="hidden md:flex items-center gap-2.5 md:gap-3 lg:gap-5 xl:gap-8" aria-label="Main Navigation">
           {navItems.map((item) => {
             const isActive = activeSection === item.id;
             return (
@@ -64,7 +76,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, activeSection }) => 
                 key={item.id}
                 id={`nav-link-${item.id}`}
                 onClick={() => handleLinkClick(item.id)}
-                className={`group relative text-xs tracking-[0.2em] font-semibold transition-colors duration-200 py-1 focus:outline-none ${
+                className={`group relative text-[11px] lg:text-[11.5px] xl:text-xs tracking-[0.1em] lg:tracking-[0.14em] xl:tracking-[0.2em] font-semibold transition-colors duration-200 py-1 focus:outline-none whitespace-nowrap ${
                   isActive ? 'text-white' : 'text-neutral-400 hover:text-white'
                 }`}
               >
@@ -81,11 +93,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, activeSection }) => 
         </nav>
 
         {/* Right CTA */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-2.5 lg:gap-3 xl:gap-4">
           <button
             id="nav-hire-btn"
             onClick={() => handleLinkClick('contact')}
-            className="inline-flex items-center gap-2 px-5 py-2 text-xs font-bold tracking-widest text-white bg-[#8B001F] hover:bg-[#A11D33] border border-[#BE123C]/30 transition-all rounded-xs shadow-md hover:shadow-[#8B001F]/30 hover:-translate-y-0.5 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#8B001F]"
+            className="inline-flex items-center gap-1.5 lg:gap-2 px-3 py-1.5 md:px-3.5 md:py-2 lg:px-4 lg:py-2 xl:px-5 xl:py-2 text-[11px] xl:text-xs font-bold tracking-wider xl:tracking-widest text-white bg-[#8B001F] hover:bg-[#A11D33] border border-[#BE123C]/30 transition-all rounded-xs shadow-md hover:shadow-[#8B001F]/30 hover:-translate-y-0.5 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#8B001F] whitespace-nowrap"
           >
             LET'S TALK
             <ArrowUpRight className="w-3.5 h-3.5" />
@@ -107,10 +119,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, activeSection }) => 
       {mobileMenuOpen && (
         <div 
           id="mobile-navigation-overlay"
-          className="md:hidden fixed inset-0 top-[60px] bg-[#070708]/98 backdrop-blur-xl z-40 border-t border-[#8B001F]/20 px-6 py-8 flex flex-col justify-between overflow-y-auto"
+          className="md:hidden fixed inset-x-0 top-[56px] sm:top-[60px] bottom-0 bg-[#070708]/98 backdrop-blur-xl z-50 border-t border-[#8B001F]/20 px-5 sm:px-8 py-6 flex flex-col justify-between overflow-y-auto"
         >
-          <div className="flex flex-col space-y-4">
-            <span className="text-[10px] tracking-[0.3em] uppercase text-[#C81E3D] font-bold mb-2">
+          <div className="flex flex-col space-y-2 xs:space-y-3">
+            <span className="text-[10px] tracking-[0.3em] uppercase text-[#C81E3D] font-bold mb-1">
               NAVIGATION
             </span>
             {navItems.map((item, idx) => (
@@ -118,25 +130,25 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, activeSection }) => 
                 key={item.id}
                 id={`mobile-nav-${item.id}`}
                 onClick={() => handleLinkClick(item.id)}
-                className="text-left py-2 font-display text-4xl sm:text-5xl text-white hover:text-[#C81E3D] transition-colors flex items-center justify-between group"
+                className="text-left py-1.5 xs:py-2 font-display text-2xl xs:text-3xl sm:text-4xl text-white hover:text-[#C81E3D] transition-colors flex items-center justify-between group"
               >
                 <span>{item.label}</span>
-                <span className="font-mono text-sm text-[#8B001F] opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="font-mono text-xs sm:text-sm text-[#8B001F] opacity-70 group-hover:opacity-100 transition-opacity">
                   0{idx + 1} →
                 </span>
               </button>
             ))}
           </div>
 
-          <div className="pt-8 border-t border-[#8B001F]/20 space-y-4">
+          <div className="pt-6 border-t border-[#8B001F]/20 space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-xs text-neutral-400">DIGITAL MARKETING & BUSINESS</span>
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="text-[11px] sm:text-xs text-neutral-400 font-mono">DIGITAL MARKETING & BUSINESS</span>
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             </div>
             <button
               id="mobile-menu-cta-btn"
               onClick={() => handleLinkClick('contact')}
-              className="w-full py-4 bg-[#8B001F] hover:bg-[#A11D33] text-white font-bold tracking-widest text-sm rounded-xs flex items-center justify-center gap-2 transition-colors shadow-lg shadow-[#8B001F]/30"
+              className="w-full py-3 sm:py-3.5 bg-[#8B001F] hover:bg-[#A11D33] text-white font-bold tracking-widest text-xs sm:text-sm rounded-xs flex items-center justify-center gap-2 transition-colors shadow-lg shadow-[#8B001F]/30"
             >
               LET'S TALK
               <ArrowUpRight className="w-4 h-4" />

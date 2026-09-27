@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --breakpoint-xs: 375px;
+}
+
 @layer base {
   :root {
     --font-display: 'Bebas Neue', 'Anton', sans-serif;
@@ -58,5 +62,28 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #8B001F;
+}
+
+/* Ensure Floating Manoj's Assistant trigger is ALWAYS fixed to viewport, visible, and clickable across all screen widths */
+#assistant-mascot-fixed-trigger {
+  position: fixed !important;
+  z-index: 9999 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+#cat-mascot-trigger-btn {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+#portfolio-assistant-window {
+  position: fixed !important;
+  z-index: 9999 !important;
 }
 

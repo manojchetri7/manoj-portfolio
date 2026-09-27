@@ -80,23 +80,23 @@ export const Certificates: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
-        <div className="mb-14 sm:mb-16 border-b border-[#8B001F]/30 pb-4 flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div className="mb-10 sm:mb-16 border-b border-[#8B001F]/30 pb-3 sm:pb-4 flex flex-col md:flex-row md:items-end justify-between gap-3 sm:gap-4">
           <div>
             <span className="text-xs font-mono tracking-[0.25em] text-[#BE123C] uppercase font-bold block mb-2">
               VERIFIED INDUSTRY CREDENTIALS
             </span>
-            <h2 className="font-headline text-5xl sm:text-6xl md:text-7xl tracking-tight uppercase text-white font-black">
+            <h2 className="font-headline text-4xl xs:text-5xl sm:text-6xl md:text-7xl tracking-tight uppercase text-white font-black">
               CERTIFICATES
             </h2>
           </div>
 
-          <span className="text-xs font-mono text-neutral-400 uppercase tracking-widest self-start md:self-end">
+          <span className="text-[11px] sm:text-xs font-mono text-neutral-400 uppercase tracking-widest self-start md:self-end">
             ACCREDITED CREDENTIALS ({CERTIFICATES.length})
           </span>
         </div>
 
         {/* 4 Certificates Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
           {CERTIFICATES.map((cert) => {
             const isGoogleDigitalMarketing = cert.id === 'cert-google-digital-marketing';
 
@@ -105,7 +105,7 @@ export const Certificates: React.FC = () => {
                 key={cert.id}
                 id={`certificate-card-${cert.number}`}
                 onClick={() => setSelectedCert(cert)}
-                className="group relative bg-[#0c0a0b] p-7 sm:p-8 rounded-xs border border-[#8B001F]/25 hover:border-[#8B001F] transition-all duration-300 flex flex-col justify-between cursor-pointer overflow-hidden"
+                className="group relative bg-[#0c0a0b] p-5 sm:p-8 rounded-xs border border-[#8B001F]/25 hover:border-[#8B001F] transition-all duration-300 flex flex-col justify-between cursor-pointer overflow-hidden"
               >
                 {/* Subtle ambient hover glow gradient */}
                 <div 
@@ -115,21 +115,21 @@ export const Certificates: React.FC = () => {
 
                 {/* Top Number & Status Header */}
                 <div className="relative z-10">
-                  <div className="flex items-center justify-between mb-6 pb-4 border-b border-[#8B001F]/20">
-                    <div className="flex items-baseline gap-3">
-                      <span className="font-serif-title text-5xl sm:text-6xl text-[#9E1B32] font-black group-hover:scale-105 transition-transform duration-300">
+                  <div className="flex items-center justify-between mb-4 sm:mb-6 pb-3 sm:pb-4 border-b border-[#8B001F]/20">
+                    <div className="flex items-baseline gap-2.5 sm:gap-3">
+                      <span className="font-serif-title text-4xl sm:text-6xl text-[#9E1B32] font-black group-hover:scale-105 transition-transform duration-300">
                         {cert.number}
                       </span>
-                      <span className="text-[10px] font-mono text-white/90 uppercase tracking-widest px-2.5 py-0.5 bg-[#8B001F]/30 border border-[#BE123C]/40 rounded-xs font-bold">
+                      <span className="text-[9px] sm:text-[10px] font-mono text-white/90 uppercase tracking-widest px-2 sm:px-2.5 py-0.5 bg-[#8B001F]/30 border border-[#BE123C]/40 rounded-xs font-bold">
                         {cert.status}
                       </span>
                     </div>
 
-                    <div className="flex items-center gap-2">
-                      <span className="text-[10px] font-mono text-[#BE123C] uppercase tracking-widest px-2.5 py-0.5 bg-[#8B001F]/15 border border-[#8B001F]/30 rounded-xs font-bold">
+                    <div className="flex items-center gap-1.5 sm:gap-2">
+                      <span className="text-[9px] sm:text-[10px] font-mono text-[#BE123C] uppercase tracking-widest px-2 sm:px-2.5 py-0.5 bg-[#8B001F]/15 border border-[#8B001F]/30 rounded-xs font-bold">
                         {cert.badge}
                       </span>
-                      <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-widest px-2 py-0.5 bg-white/5 rounded-xs">
+                      <span className="text-[9px] sm:text-[10px] font-mono text-neutral-400 uppercase tracking-widest px-1.5 sm:px-2 py-0.5 bg-white/5 rounded-xs">
                         {cert.year}
                       </span>
                     </div>
@@ -213,44 +213,44 @@ export const Certificates: React.FC = () => {
           aria-labelledby="cert-modal-title"
         >
           <div 
-            className="relative w-full max-w-xl bg-[#0c0a0b] text-white rounded-xs shadow-2xl overflow-hidden p-8 sm:p-12 text-center border border-[#8B001F]/50 animate-scale-up"
+            className="relative w-full max-w-xl bg-[#0c0a0b] text-white rounded-xs shadow-2xl overflow-hidden p-5 xs:p-6 sm:p-12 text-center border border-[#8B001F]/50 animate-scale-up max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Close Button */}
             <button
               onClick={() => setSelectedCert(null)}
-              className="absolute top-4 right-4 p-2 rounded-xs text-neutral-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+              className="absolute top-3 right-3 sm:top-4 sm:right-4 p-2 rounded-xs text-neutral-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
               aria-label="Close certificate preview"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
 
             {/* Official Certificate Modal Content */}
-            <div className="py-4 space-y-6">
+            <div className="py-2 sm:py-4 space-y-4 sm:space-y-6">
               
-              <div className="flex justify-center py-2">
-                <GoogleCertBadge size={100} />
+              <div className="flex justify-center py-1 sm:py-2">
+                <GoogleCertBadge size={75} />
               </div>
 
               <div>
-                <h3 className="font-headline text-2xl sm:text-3xl font-extrabold text-white leading-snug uppercase">
+                <h3 className="font-headline text-xl xs:text-2xl sm:text-3xl font-extrabold text-white leading-snug uppercase">
                   {selectedCert.title}
                 </h3>
-                <p className="mt-3 text-sm sm:text-base text-neutral-300 font-light">
+                <p className="mt-2 sm:mt-3 text-xs xs:text-sm sm:text-base text-neutral-300 font-light">
                   Completed by <strong className="font-bold text-white">{selectedCert.recipient || 'Manoj Chetri'}</strong> on {selectedCert.year}
                 </p>
               </div>
 
               {/* Completion ID & Status Badge */}
-              <div className="pt-4 border-t border-[#8B001F]/30 flex flex-col items-center gap-3">
+              <div className="pt-3 sm:pt-4 border-t border-[#8B001F]/30 flex flex-col items-center gap-2.5 sm:gap-3">
                 {selectedCert.credentialId && (
-                  <div className="font-mono text-xs sm:text-sm text-neutral-300 tracking-wider">
+                  <div className="font-mono text-xs sm:text-sm text-neutral-300 tracking-wider break-all">
                     Completion ID: <span className="font-semibold text-white">{selectedCert.credentialId}</span>
                   </div>
                 )}
 
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xs bg-[#8B001F]/30 text-white text-xs font-semibold border border-[#BE123C]/40">
-                  <Check className="w-3.5 h-3.5 text-[#F43F5E]" />
+                <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-xs bg-[#8B001F]/30 text-white text-[11px] sm:text-xs font-semibold border border-[#BE123C]/40">
+                  <Check className="w-3.5 h-3.5 text-[#F43F5E] shrink-0" />
                   <span>Verified Completion by {selectedCert.issuer}</span>
                 </div>
 
@@ -259,10 +259,10 @@ export const Certificates: React.FC = () => {
                     href={selectedCert.verificationUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-2 inline-flex items-center gap-2 px-6 py-3 rounded-xs bg-[#8B001F] hover:bg-[#A11D33] text-white font-mono text-xs font-bold uppercase tracking-wider transition-colors border border-[#BE123C]/50 shadow-lg shadow-[#8B001F]/30"
+                    className="mt-1 sm:mt-2 inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-xs bg-[#8B001F] hover:bg-[#A11D33] text-white font-mono text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-colors border border-[#BE123C]/50 shadow-lg shadow-[#8B001F]/30 w-full sm:w-auto justify-center"
                   >
                     <span>Verify on Official Portal</span>
-                    <ExternalLink className="w-4 h-4" />
+                    <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </a>
                 )}
               </div>

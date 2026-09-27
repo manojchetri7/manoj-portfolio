@@ -14,11 +14,11 @@ export const About: React.FC = () => {
 
       <div className="max-w-7xl mx-auto">
         {/* 2-Column Editorial Grid matching Reference Image */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 lg:gap-16 items-center">
           
           {/* Column 1: Image area on one side with clean minimal border & subtle burgundy glow */}
-          <div className="lg:col-span-5 relative flex justify-center order-2 lg:order-1">
-            <div className="relative group w-full max-w-sm sm:max-w-md">
+          <div className="md:col-span-5 relative flex justify-center order-2 md:order-1">
+            <div className="relative group w-full max-w-[260px] xs:max-w-xs sm:max-w-sm md:max-w-full">
               {/* Deep burgundy ambient back-glow */}
               <div className="absolute -inset-2 bg-[#8B001F]/20 rounded-2xl blur-xl group-hover:bg-[#8B001F]/30 transition-all pointer-events-none" />
 
@@ -32,15 +32,15 @@ export const About: React.FC = () => {
                     loading="lazy"
                   />
                   {/* Subtle dark vignette */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#070708]/90 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#070708]/90 via-transparent to-transparent pointer-events-none" />
                   
                   {/* Name Overlay Tag inside image */}
-                  <div className="absolute bottom-4 left-4 right-4 bg-[#070708]/90 backdrop-blur-md border border-[#8B001F]/30 p-3 rounded-xs flex items-center justify-between">
+                  <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 bg-[#070708]/90 backdrop-blur-md border border-[#8B001F]/30 p-2.5 sm:p-3 rounded-xs flex items-center justify-between">
                     <div>
-                      <p className="text-[10px] tracking-widest uppercase text-[#BE123C] font-mono font-bold">ABOUT / PROFILE</p>
-                      <p className="font-headline text-lg text-white tracking-wide">{PERSONAL_INFO.name}</p>
+                      <p className="text-[9px] sm:text-[10px] tracking-widest uppercase text-[#BE123C] font-mono font-bold">ABOUT / PROFILE</p>
+                      <p className="font-headline text-base sm:text-lg text-white tracking-wide">{PERSONAL_INFO.name}</p>
                     </div>
-                    <span className="text-xs px-2.5 py-1 bg-[#8B001F] text-white font-mono font-bold rounded-xs">
+                    <span className="text-[10px] sm:text-xs px-2 sm:px-2.5 py-0.5 sm:py-1 bg-[#8B001F] text-white font-mono font-bold rounded-xs">
                       INDIA
                     </span>
                   </div>
@@ -50,31 +50,31 @@ export const About: React.FC = () => {
           </div>
 
           {/* Column 2: Bio & Metadata Blocks with Large "ABOUT ME" */}
-          <div className="lg:col-span-7 space-y-7 order-1 lg:order-2">
+          <div className="md:col-span-7 space-y-5 sm:space-y-6 md:space-y-6 lg:space-y-7 order-1 md:order-2">
             
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {/* Large "ABOUT ME" Typography Treatment (as in reference image with "ME" in burgundy) */}
-              <div className="border-b border-[#8B001F]/30 pb-4">
-                <h2 className="font-headline text-5xl sm:text-6xl md:text-7xl tracking-tight uppercase text-white font-black">
+              <div className="border-b border-[#8B001F]/30 pb-3 sm:pb-4">
+                <h2 className="font-headline text-4xl xs:text-5xl sm:text-6xl md:text-7xl tracking-tight uppercase text-white font-black">
                   ABOUT <span className="text-[#9E1B32]">ME</span>
                 </h2>
               </div>
 
               {/* User's exact bio text preserved */}
-              <p className="text-xl sm:text-2xl font-light text-white leading-relaxed">
+              <p className="text-lg xs:text-xl sm:text-2xl font-light text-white leading-relaxed">
                 Hi, I'm <strong className="text-white font-bold">Manoj Chetri</strong>, a B.Com student with a growing interest in <span className="text-[#BE123C] font-semibold underline decoration-2 underline-offset-4 decoration-[#8B001F]">Digital Marketing, Business, and Technology</span>.
               </p>
 
               {/* Body paragraphs with structured formatting */}
-              <div className="space-y-4 text-base sm:text-lg text-neutral-300 leading-relaxed font-light">
+              <div className="space-y-3 sm:space-y-4 text-sm xs:text-base sm:text-lg text-neutral-300 leading-relaxed font-light">
                 <p>
                   At the moment, I’m focused on turning my theoretical knowledge into practical experience through <strong className="text-white font-semibold">personal projects, content creation, and digital marketing experiments</strong>. I enjoy exploring new ideas, learning how digital platforms work, and developing skills that can help businesses build and grow their online presence.
                 </p>
                 <p>
                   I’m curious, eager to learn, and continuously working on improving my skills. My long-term goal is to build a career in <strong className="text-white font-semibold">Digital Marketing</strong>, where I can combine my B.Com background with digital skills to create meaningful results for businesses.
                 </p>
-                <div className="p-4 rounded-xs bg-[#8B001F]/10 border border-[#8B001F]/30 text-neutral-200 text-sm sm:text-base flex items-start gap-3">
-                  <span className="w-2 h-2 rounded-full bg-[#BE123C] mt-2 shrink-0 shadow-[0_0_6px_rgba(190,18,60,0.8)]" />
+                <div className="p-3.5 sm:p-4 rounded-xs bg-[#8B001F]/10 border border-[#8B001F]/30 text-neutral-200 text-xs xs:text-sm sm:text-base flex items-start gap-3">
+                  <span className="w-2 h-2 rounded-full bg-[#BE123C] mt-1.5 sm:mt-2 shrink-0 shadow-[0_0_6px_rgba(190,18,60,0.8)]" />
                   <p>
                     This portfolio represents my <strong className="text-[#F43F5E] font-semibold">learning journey, skills, projects, and progress</strong> as I prepare for future opportunities.
                   </p>

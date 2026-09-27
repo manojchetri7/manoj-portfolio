@@ -18,7 +18,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         {/* Editorial Tribute Banner: "THANK YOU" */}
         <div className="text-center relative py-12 mb-16 border-b border-[#8B001F]/20 select-none">
           <div className="inline-block relative">
-            <h2 className="font-serif-title text-[15vw] sm:text-[11vw] md:text-[120px] lg:text-[145px] leading-[0.82] tracking-tight uppercase text-white font-black">
+            <h2 className="font-serif-title text-[14vw] sm:text-[11vw] md:text-[84px] lg:text-[145px] leading-[0.85] tracking-tight uppercase text-white font-black">
               THANK YOU
             </h2>
           </div>
