@@ -53,10 +53,10 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onContactClick }) => 
           </div>
 
           {/* DOMINANT EDITORIAL HEADLINE: PORTFOLIO in Deep Burgundy / Crimson */}
-          <div className="w-full overflow-hidden">
+          <div className="w-full max-w-full overflow-hidden">
             <h1 
               id="hero-main-headline"
-              className="font-serif-title text-[13vw] xs:text-[14vw] sm:text-[13vw] md:text-[84px] lg:text-[104px] xl:text-[165px] font-black leading-[0.85] tracking-tight uppercase text-[#9E1B32] drop-shadow-[0_8px_30px_rgba(139,0,31,0.3)] break-normal"
+              className="font-serif-title font-black leading-[0.85] tracking-tight uppercase text-[#9E1B32] drop-shadow-[0_8px_30px_rgba(139,0,31,0.3)] whitespace-nowrap break-normal max-w-full block"
             >
               PORTFOLIO
             </h1>

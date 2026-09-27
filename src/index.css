@@ -87,3 +87,35 @@
   z-index: 9999 !important;
 }
 
+/* Responsive scaling for Hero PORTFOLIO headline: fits fully on mobile without clipping */
+#hero-main-headline {
+  font-size: clamp(34px, 11vw, 50px);
+  max-width: 100%;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  #hero-main-headline {
+    font-size: 64px;
+  }
+}
+
+@media (min-width: 768px) {
+  #hero-main-headline {
+    font-size: 84px;
+  }
+}
+
+@media (min-width: 1024px) {
+  #hero-main-headline {
+    font-size: 104px;
+  }
+}
+
+@media (min-width: 1280px) {
+  #hero-main-headline {
+    font-size: 165px;
+  }
+}
+
