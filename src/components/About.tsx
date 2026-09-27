@@ -1,6 +1,7 @@
 import React from 'react';
 import { MapPin, Palette, Award, Sparkles } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import profilePortraitImg from '../assets/images/regenerated_image_1790411853949.jpg';
 
 export const About: React.FC = () => {
   return (
@@ -25,7 +26,7 @@ export const About: React.FC = () => {
               <div className="relative bg-[#0d0a0b] rounded-xl p-2 border border-[#8B001F]/40 shadow-[0_20px_50px_rgba(0,0,0,0.85)] overflow-hidden">
                 <div className="aspect-[4/5] overflow-hidden rounded-lg bg-neutral-900 relative">
                   <img 
-                    src="/images/regenerated_image_1790411853949.jpg" 
+                    src={profilePortraitImg} 
                     alt="Manoj Chetri - B.Com Student & Digital Marketing Explorer"
                     className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
                     loading="lazy"

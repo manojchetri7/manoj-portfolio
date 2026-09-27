@@ -14,6 +14,7 @@ import {
   Mail 
 } from 'lucide-react';
 import { PERSONAL_INFO, SOFTWARE_TOOLS, DESIGNING_SKILLS, CERTIFICATES } from '../data/portfolioData';
+import assistantMascotImg from '../assets/images/hello_hooded_cat_1790410352019.jpg';
 
 interface PortfolioAssistantProps {
   onNavigate: (sectionId: string) => void;
@@ -599,7 +600,7 @@ export const PortfolioAssistant: React.FC<PortfolioAssistantProps> = ({ onNaviga
               <div className="absolute inset-0 bg-[#8B001F]/30 blur-xl rounded-full scale-90 group-hover:scale-115 group-hover:bg-[#BE123C]/50 transition-all duration-300 pointer-events-none" />
 
               <img
-                src="/images/hello_hooded_cat_1790410352019.jpg"
+                src={assistantMascotImg}
                 alt="Manoj's Assistant Mascot"
                 referrerPolicy="no-referrer"
                 className="relative w-20 sm:w-24 md:w-28 lg:w-30 h-auto object-contain rounded-2xl drop-shadow-[0_10px_25px_rgba(0,0,0,0.9)] transition-all duration-300 group-hover:drop-shadow-[0_15px_30px_rgba(190,18,60,0.4)]"
@@ -628,7 +629,7 @@ export const PortfolioAssistant: React.FC<PortfolioAssistantProps> = ({ onNaviga
             <div className="flex items-center gap-2.5">
               <div className="relative flex items-center justify-center w-8 h-8 rounded-full overflow-hidden border border-[#BE123C]/60 bg-black shadow-sm">
                 <img 
-                  src="/images/hello_hooded_cat_1790410352019.jpg" 
+                  src={assistantMascotImg} 
                   alt="Manoj's Cat Assistant" 
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
@@ -677,30 +678,42 @@ export const PortfolioAssistant: React.FC<PortfolioAssistantProps> = ({ onNaviga
                   key={msg.id}
                   className={`flex flex-col ${isAssistant ? 'items-start' : 'items-end'}`}
                 >
-                  <div
-                    className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 leading-relaxed whitespace-pre-line ${
-                      isAssistant
-                        ? 'bg-[#161214] border border-[#8B001F]/20 text-neutral-200 rounded-tl-sm'
-                        : 'bg-[#8B001F] text-white font-medium rounded-tr-sm shadow-md border border-[#BE123C]/30'
-                    }`}
-                  >
-                    {msg.text}
-
-                    {/* Interactive Action Button (e.g. Scroll to Section) */}
-                    {isAssistant && msg.actionSection && (
-                      <div className="mt-2.5 pt-2 border-t border-white/10">
-                        <button
-                          onClick={() => onNavigate(msg.actionSection!)}
-                          className="w-full inline-flex items-center justify-center gap-1.5 px-3 py-1.5 bg-[#8B001F]/20 hover:bg-[#8B001F]/40 text-[#F43F5E] border border-[#BE123C]/40 rounded-lg text-xs font-semibold tracking-wide transition-colors cursor-pointer"
-                        >
-                          <span>{msg.actionLabel || 'Go to Section'}</span>
-                          <ArrowUpRight className="w-3.5 h-3.5" />
-                        </button>
+                  <div className={`flex items-end gap-2 max-w-[90%] sm:max-w-[85%] ${isAssistant ? 'flex-row' : 'flex-row-reverse'}`}>
+                    {isAssistant && (
+                      <div className="w-6 h-6 rounded-full overflow-hidden shrink-0 border border-[#BE123C]/50 shadow-xs mb-1 bg-black">
+                        <img 
+                          src={assistantMascotImg} 
+                          alt="Manoj's Assistant" 
+                          className="w-full h-full object-cover" 
+                          referrerPolicy="no-referrer"
+                        />
                       </div>
                     )}
+                    <div
+                      className={`rounded-2xl px-3.5 py-2.5 leading-relaxed whitespace-pre-line ${
+                        isAssistant
+                          ? 'bg-[#161214] border border-[#8B001F]/20 text-neutral-200 rounded-tl-sm'
+                          : 'bg-[#8B001F] text-white font-medium rounded-tr-sm shadow-md border border-[#BE123C]/30'
+                      }`}
+                    >
+                      {msg.text}
+
+                      {/* Interactive Action Button (e.g. Scroll to Section) */}
+                      {isAssistant && msg.actionSection && (
+                        <div className="mt-2.5 pt-2 border-t border-white/10">
+                          <button
+                            onClick={() => onNavigate(msg.actionSection!)}
+                            className="w-full inline-flex items-center justify-center gap-1.5 px-3 py-1.5 bg-[#8B001F]/20 hover:bg-[#8B001F]/40 text-[#F43F5E] border border-[#BE123C]/40 rounded-lg text-xs font-semibold tracking-wide transition-colors cursor-pointer"
+                          >
+                            <span>{msg.actionLabel || 'Go to Section'}</span>
+                            <ArrowUpRight className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                      )}
+                    </div>
                   </div>
 
-                  <span className="text-[9px] text-neutral-500 font-mono mt-1 px-1">
+                  <span className={`text-[9px] text-neutral-500 font-mono mt-1 px-1 ${isAssistant ? 'ml-8' : ''}`}>
                     {msg.time}
                   </span>
 
