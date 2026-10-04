@@ -7,7 +7,7 @@ export const About: React.FC = () => {
   return (
     <section 
       id="about" 
-      className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#070708] border-b border-[#8B001F]/30 overflow-hidden"
+      className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-transparent border-b border-[#8B001F]/30 overflow-hidden"
     >
       {/* Background ambient accents */}
       <div className="absolute top-1/3 left-0 w-96 h-96 bg-[#8B001F]/10 rounded-full blur-[140px] pointer-events-none" />

@@ -10,7 +10,6 @@ import {
   GraduationCap, 
   Award, 
   Briefcase, 
-  Image as ImageIcon, 
   Mail 
 } from 'lucide-react';
 import { PERSONAL_INFO, SOFTWARE_TOOLS, DESIGNING_SKILLS, CERTIFICATES } from '../data/portfolioData';
@@ -209,7 +208,22 @@ const checkQueryIntent = (input: string, currentVisitorName?: string): QueryResu
     };
   }
 
-  // 5. Contact / Hire / Email
+  // 5. Projects & Practical Builds
+  if (
+    lower.includes('project') || 
+    lower.includes('portfolio website') || 
+    lower.includes('build') ||
+    lower.includes('cafe') || 
+    lower.includes('guwahati')
+  ) {
+    return {
+      replyText: `Manoj has built two practical AI-assisted web projects:\n1. My Personal Portfolio (built with Google AI Studio)\n2. Guwahati Café Guide (live café discovery guide at affordable-caf-s-in-guwahati.ai.studio)\n\nBoth projects were built while experimenting with web development and practical digital skills.`,
+      targetSection: 'projects',
+      actionLabel: 'Scroll to Projects Section',
+    };
+  }
+
+  // 6. Contact / Hire / Email
   if (
     lower.includes('contact') || 
     lower.includes('email') || 
@@ -229,7 +243,24 @@ const checkQueryIntent = (input: string, currentVisitorName?: string): QueryResu
     };
   }
 
-  // 6. Menu / Options / Help / Back
+  // 6. Gallery / Photos / Moments / Cafe
+  if (
+    lower.includes('gallery') || 
+    lower.includes('photo') || 
+    lower.includes('picture') || 
+    lower.includes('moment') || 
+    lower.includes('cafe') || 
+    lower.includes('nature') || 
+    lower.includes('trip')
+  ) {
+    return {
+      replyText: `Manoj's visual gallery includes personal snapshots, cafe moments, scenic nature views in Assam and Delhi, and fitness sessions!`,
+      targetSection: 'gallery',
+      actionLabel: 'Scroll to Gallery & Moments',
+    };
+  }
+
+  // 7. Menu / Options / Help / Back
   if (
     lower.includes('menu') || 
     lower.includes('help') || 
@@ -312,6 +343,7 @@ export const PortfolioAssistant: React.FC<PortfolioAssistantProps> = ({ onNaviga
     { label: 'Education', sectionId: 'education', icon: GraduationCap },
     { label: 'Skills', sectionId: 'skills', icon: Compass },
     { label: 'Certificates', sectionId: 'certificates', icon: Award },
+    { label: 'Projects', sectionId: 'projects', icon: Briefcase },
     { label: 'Contact', sectionId: 'contact', icon: Mail },
   ];
 

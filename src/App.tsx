@@ -5,9 +5,11 @@ import { About } from './components/About';
 import { Education } from './components/Education';
 import { SkillsTools } from './components/SkillsTools';
 import { Certificates } from './components/Certificates';
+import { Projects } from './components/Projects';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { PortfolioAssistant } from './components/PortfolioAssistant';
+import { GlobalCosmicBackground } from './components/GlobalCosmicBackground';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('hero');
@@ -30,7 +32,7 @@ export default function App() {
 
   // Track active section on scroll
   useEffect(() => {
-    const sections = ['hero', 'about', 'education', 'skills', 'certificates', 'contact'];
+    const sections = ['hero', 'about', 'education', 'skills', 'certificates', 'projects', 'contact'];
     
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 200;
@@ -52,15 +54,47 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Global external link security handler:
+  // Guarantees all external website links (including Google, Google Maps, Google Share, social, etc.)
+  // ALWAYS open in a new browser tab with target="_blank" and rel="noopener noreferrer",
+  // and NEVER inside an iframe, embedded preview, or internal page.
+  useEffect(() => {
+    const handleGlobalLinkClick = (e: MouseEvent) => {
+      const anchor = (e.target as HTMLElement)?.closest('a');
+      if (!anchor) return;
+      const href = anchor.getAttribute('href');
+      if (!href) return;
+
+      const isExternal = 
+        href.startsWith('http://') || 
+        href.startsWith('https://') || 
+        href.startsWith('//') || 
+        href.includes('maps.google') || 
+        href.includes('goo.gl') || 
+        href.includes('google.com');
+
+      if (isExternal) {
+        anchor.target = '_blank';
+        anchor.rel = 'noopener noreferrer';
+      }
+    };
+
+    document.addEventListener('click', handleGlobalLinkClick, { capture: true });
+    return () => document.removeEventListener('click', handleGlobalLinkClick, { capture: true });
+  }, []);
+
   return (
-    <div className="min-h-screen bg-[#070708] text-white selection:bg-[#8B001F] selection:text-white">
+    <div className="relative min-h-screen bg-[#070708] text-white selection:bg-[#8B001F] selection:text-white">
+      {/* Global Fixed Futuristic Red/Burgundy Cosmic Animated Background Layer */}
+      <GlobalCosmicBackground />
+
       {/* Fixed Navigation */}
       <Navbar 
         onNavigate={handleNavigate} 
         activeSection={activeSection} 
       />
 
-      <main>
+      <main className="relative z-10">
         {/* 1. HERO SECTION (HOME) */}
         <Hero 
           onExploreWork={() => handleNavigate('skills')}
@@ -79,11 +113,14 @@ export default function App() {
         {/* 5. CERTIFICATES & CREDENTIALS */}
         <Certificates />
 
-        {/* 6. CONTACT SECTION */}
+        {/* 6. PROJECTS (SELECTED BUILDS & PRACTICAL EXPERIMENTS) */}
+        <Projects />
+
+        {/* 7. CONTACT SECTION */}
         <Contact />
       </main>
 
-      {/* 7. FOOTER BANNER */}
+      {/* 8. FOOTER BANNER */}
       <Footer onNavigate={handleNavigate} />
 
       {/* Interactive Floating Personal Portfolio Assistant (Fixed Mascot Trigger) */}

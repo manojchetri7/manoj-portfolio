@@ -12,7 +12,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   };
 
   return (
-    <footer id="portfolio-footer" className="relative bg-[#070708] text-white pt-16 pb-12 border-t border-[#8B001F]/30">
+    <footer id="portfolio-footer" className="relative bg-transparent text-white pt-16 pb-12 border-t border-[#8B001F]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Editorial Tribute Banner: "THANK YOU" */}

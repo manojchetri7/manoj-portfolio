@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowUpRight, Filter, Sparkles, Maximize2, X, ChevronLeft, ChevronRight, Camera, MapPin } from 'lucide-react';
+import { ArrowUpRight, Filter, Sparkles, Maximize2, X, ChevronLeft, ChevronRight, Camera, MapPin, ExternalLink } from 'lucide-react';
 import { PROJECTS } from '../data/portfolioData';
 import { Project, GalleryCategory } from '../types';
 import { CropMark } from './Decorations';
 
-// Easy-to-extend configuration for gallery categories
+// Easy-to-extend configuration for gallery categories (ALL, RANDOM, ASSAM, DELHI, FITNESS)
 export const GALLERY_CATEGORIES: { id: GalleryCategory; label: string; description: string }[] = [
   { id: 'ALL', label: 'ALL', description: 'Display all gallery images and memories.' },
   { id: 'RANDOM', label: 'RANDOM', description: 'Casual and miscellaneous personal photographs.' },
-  { id: 'NATURE', label: 'NATURE', description: 'Scenic landscapes, serene countryside waters, mountain ridges, and outdoor views.' },
   { id: 'ASSAM', label: 'ASSAM', description: 'Photographs taken in Assam, including nature, places, travel, and memories.' },
   { id: 'DELHI', label: 'DELHI', description: 'Photographs taken in Delhi, including places, city views, outings, and memories.' },
   { id: 'FITNESS', label: 'FITNESS', description: 'Gym, workout, and fitness-related photographs.' },
@@ -72,6 +71,7 @@ export const SelectedWork: React.FC = () => {
       id="gallery" 
       className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#070708] border-b border-[#8B001F]/30 overflow-hidden"
     >
+      <div id="work" className="absolute top-0 pointer-events-none" />
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
@@ -84,22 +84,17 @@ export const SelectedWork: React.FC = () => {
           </h2>
         </div>
 
-        {/* Category Tabs: ALL | RANDOM | ASSAM | DELHI | FITNESS */}
+        {/* Category Tabs: ALL | RANDOM | ASSAM | DELHI | FITNESS - Styled like the navigation categories in the screenshot */}
         <div 
           id="gallery-category-tabs" 
-          className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-10 pb-5 border-b border-[#8B001F]/20"
+          className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 sm:mb-10 pb-3 border-b border-[#8B001F]/20"
         >
           {/* Tabs bar: ALL | RANDOM | ASSAM | DELHI | FITNESS */}
           <div 
-            className="flex items-center gap-2 flex-wrap"
+            className="flex items-center gap-3 sm:gap-6 md:gap-7 flex-wrap"
             role="tablist" 
-            aria-label="Filter gallery by location and category"
+            aria-label="Filter gallery by category: ALL, RANDOM, ASSAM, DELHI, FITNESS"
           >
-            <div className="hidden sm:flex items-center gap-1.5 text-xs text-neutral-400 font-mono mr-1">
-              <Filter className="w-3.5 h-3.5 text-[#BE123C]" />
-              FILTER:
-            </div>
-
             {GALLERY_CATEGORIES.map((cat) => {
               const isActive = activeCategory === cat.id;
               const count = cat.id === 'ALL' 
@@ -113,22 +108,24 @@ export const SelectedWork: React.FC = () => {
                   onClick={() => setActiveCategory(cat.id)}
                   role="tab"
                   aria-selected={isActive}
-                  className={`px-3.5 sm:px-4 py-2 text-xs font-bold tracking-widest uppercase rounded-xs transition-all duration-300 cursor-pointer flex items-center gap-2 ${
-                    isActive
-                      ? 'bg-[#8B001F] text-white shadow-md shadow-[#8B001F]/30 border border-[#BE123C]/50'
-                      : 'bg-[#0c0a0b] text-neutral-400 hover:text-white border border-[#8B001F]/20 hover:border-[#8B001F]/50'
+                  className={`group relative text-xs sm:text-sm tracking-[0.14em] font-semibold transition-colors duration-200 py-1.5 focus:outline-none cursor-pointer flex items-center gap-1.5 ${
+                    isActive ? 'text-white font-bold' : 'text-neutral-400 hover:text-white'
                   }`}
                 >
                   <span>{cat.label}</span>
                   <span 
-                    className={`text-[10px] font-mono px-1.5 py-0.2 rounded-xs ${
-                      isActive 
-                        ? 'bg-black/30 text-white font-bold' 
-                        : 'bg-white/5 text-neutral-400'
+                    className={`text-[10px] font-mono transition-colors ${
+                      isActive ? 'text-[#BE123C] font-bold' : 'text-neutral-500 group-hover:text-neutral-300'
                     }`}
                   >
-                    {count}
+                    ({count})
                   </span>
+                  {/* Burgundy animated underline on hover or active (matches navbar style in screenshot) */}
+                  <span 
+                    className={`absolute bottom-0 left-0 w-full h-[2px] bg-[#8B001F] transition-transform duration-300 origin-left ${
+                      isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                    }`}
+                  />
                 </button>
               );
             })}
@@ -219,15 +216,29 @@ export const SelectedWork: React.FC = () => {
                     </p>
 
                     {/* Interactive Prompt */}
-                    <div className="mt-4 pt-3 border-t border-[#8B001F]/20 flex items-center justify-between text-xs font-bold text-white group-hover:text-[#BE123C] tracking-wider uppercase transition-colors">
-                      <span className="flex items-center gap-1.5">
+                    <div className="mt-4 pt-3 border-t border-[#8B001F]/20 flex items-center justify-between text-xs font-bold text-white tracking-wider uppercase transition-colors">
+                      <span className="flex items-center gap-1.5 group-hover:text-[#BE123C] transition-colors">
                         <Maximize2 className="w-3 h-3 text-[#BE123C]" />
                         <span>VIEW FULLSCREEN</span>
                         <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                       </span>
-                      <span className="text-[10px] font-mono text-neutral-400">
-                        {project.tools[0]}
-                      </span>
+                      {project.externalUrl ? (
+                        <a
+                          href={project.externalUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-flex items-center gap-1 text-[11px] font-mono text-white bg-[#8B001F] hover:bg-[#A11D33] px-2.5 py-1 rounded-xs border border-[#BE123C]/50 transition-colors shadow-sm pointer-events-auto"
+                          title="Open link in a new tab"
+                        >
+                          <span>{project.linkText || 'View Cafe'}</span>
+                          <ExternalLink className="w-3 h-3 text-white" />
+                        </a>
+                      ) : (
+                        <span className="text-[10px] font-mono text-neutral-400">
+                          {project.tools[0]}
+                        </span>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -271,6 +282,19 @@ export const SelectedWork: React.FC = () => {
             </div>
 
             <div className="flex items-center gap-3">
+              {lightboxProject.externalUrl && (
+                <a
+                  href={lightboxProject.externalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#8B001F] hover:bg-[#A11D33] text-white text-xs font-mono font-bold uppercase rounded-xs border border-[#BE123C]/50 transition-colors shadow-md"
+                  title="Open external website in a new tab"
+                >
+                  <span>{lightboxProject.linkText || 'View Cafe'}</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              )}
+
               <span className="text-xs font-mono text-neutral-400 px-2.5 py-1 rounded-xs bg-[#0c0a0b] border border-[#8B001F]/30">
                 {filteredProjects.findIndex((p) => p.id === lightboxProject.id) + 1} / {filteredProjects.length}
               </span>

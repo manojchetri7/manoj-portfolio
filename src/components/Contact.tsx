@@ -48,7 +48,7 @@ export const Contact: React.FC = () => {
   return (
     <section 
       id="contact" 
-      className="relative py-20 sm:py-28 bg-[#070708] border-b border-[#8B001F]/30 overflow-hidden"
+      className="relative py-20 sm:py-28 bg-transparent border-b border-[#8B001F]/30 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -124,6 +124,27 @@ export const Contact: React.FC = () => {
                     </span>
                     <span className="text-sm sm:text-base font-bold text-white group-hover:text-[#BE123C] transition-colors">
                       @{PERSONAL_INFO.instagram}
+                    </span>
+                  </div>
+                </a>
+
+                {/* LinkedIn */}
+                <a
+                  id="contact-linkedin-link"
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-3.5 rounded-xs bg-black/60 border border-[#8B001F]/20 hover:border-[#8B001F] hover:bg-[#8B001F]/10 transition-all group"
+                >
+                  <div className="w-10 h-10 rounded-xs bg-[#8B001F]/20 text-[#BE123C] border border-[#BE123C]/30 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                    <Linkedin className="w-4 h-4" />
+                  </div>
+                  <div className="overflow-hidden">
+                    <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-widest block">
+                      LINKEDIN
+                    </span>
+                    <span className="text-sm sm:text-base font-bold text-white group-hover:text-[#BE123C] transition-colors">
+                      {PERSONAL_INFO.name}
                     </span>
                   </div>
                 </a>

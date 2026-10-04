@@ -221,6 +221,8 @@ export const PROJECTS: Project[] = [
     aspectRatio: 'portrait',
     tags: ['Coffee', 'Chai', 'Conversations', 'Relax'],
     colorAccent: '#D97706',
+    externalUrl: 'https://maps.google.com/?q=Cafe+Moments',
+    linkText: 'View Cafe',
   },
 
   // =========================================================================

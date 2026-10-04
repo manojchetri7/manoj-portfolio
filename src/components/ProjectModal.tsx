@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, ChevronLeft, ChevronRight, ArrowUpRight, Calendar, User, Tag, Sparkles } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, ArrowUpRight, Calendar, User, Tag, Sparkles, ExternalLink } from 'lucide-react';
 import { Project } from '../types';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { AdobeBadge } from './Decorations';
@@ -230,6 +230,23 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                     ))}
                   </div>
                 </div>
+
+                {project.externalUrl && (
+                  <div>
+                    <span className="text-[11px] font-mono tracking-wider uppercase text-neutral-400 block mb-2">
+                      EXTERNAL WEBSITE & MAPS
+                    </span>
+                    <a
+                      href={project.externalUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[#8B001F] hover:bg-[#A11D33] text-white font-bold text-xs tracking-wider uppercase rounded-xs transition-colors border border-[#BE123C]/50 shadow-md font-mono"
+                    >
+                      <span>{project.linkText || 'View Cafe'}</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+                )}
 
                 <div>
                   <span className="text-[11px] font-mono tracking-wider uppercase text-neutral-400 block mb-2">

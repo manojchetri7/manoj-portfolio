@@ -21,7 +21,7 @@ export const Education: React.FC = () => {
   return (
     <section 
       id="education" 
-      className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#070708] border-b border-[#8B001F]/30 overflow-hidden"
+      className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-transparent border-b border-[#8B001F]/30 overflow-hidden"
     >
       {/* Ambient background glow */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-[#8B001F]/10 rounded-full blur-[140px] pointer-events-none" />

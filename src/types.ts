@@ -27,6 +27,8 @@ export interface Project {
   aspectRatio?: 'square' | 'portrait' | 'landscape';
   tags: string[];
   colorAccent?: string;
+  externalUrl?: string;
+  linkText?: string;
 }
 
 export interface SkillCategory {

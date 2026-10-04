@@ -75,7 +75,7 @@ export const Certificates: React.FC = () => {
   return (
     <section 
       id="certificates" 
-      className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#070708] border-b border-[#8B001F]/30 overflow-hidden"
+      className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-transparent border-b border-[#8B001F]/30 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
         
